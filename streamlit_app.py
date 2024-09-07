@@ -8,7 +8,7 @@ page_avisos = st.Page(
     icon=":material/campaign:",
     default= True
 )
--
+
 page_eliane = st.Page(
     "views/grade_eliane.py",
     title="Eliane Potiguara",
