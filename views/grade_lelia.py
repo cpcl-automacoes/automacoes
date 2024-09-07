@@ -15,6 +15,9 @@ today = pd.to_datetime(datetime.today().strftime('%d/%m/%Y'))
 
 # Filter rows where the date is equal or greater than today
 filtered_df = df[df['Data'] >= today]
+
+filtered_df['Data'] = filtered_df['Data'].dt.strftime('%d/%m/%Y')
+
 datas = df["Data"]
 
 menor_data = filtered_df["Data"].min()
