@@ -18,7 +18,7 @@ filtered_df = df[df['Data'] >= today]
 
 filtered_df['Data'] = filtered_df['Data'].dt.strftime('%d/%m/%Y')
 
-datas = df["Data"]
+datas = filtered_df["Data"]
 
 menor_data = filtered_df["Data"].min()
 
