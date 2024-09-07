@@ -24,7 +24,11 @@ datas = filtered_df["Data"]
 
 menor_data = filtered_df["Data"].min()
 
-st.image("assets/logo_com_texto.png")
+col1, col2 = st.columns(2)
+with col1:
+    st.image("assets/logo_com_texto.png",use_column_width="auto")
+with col2:
+  st.markdown("## Grade Horária - Eliane Potiguara")
 
 data_select = st.selectbox(
     label="Selecione a data",
