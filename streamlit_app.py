@@ -34,6 +34,9 @@ pg = st.navigation(
 # --- SHARED ON ALL PAGES ---
 st.logo("assets/logo_sem_texto.png")
 
+img[data-testid="stLogo"] {
+            height: 3.5rem;
+}
 
 # --- RUN NAVIGATION ---
 pg.run()
