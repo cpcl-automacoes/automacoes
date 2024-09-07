@@ -32,8 +32,7 @@ pg = st.navigation(
 
 
 # --- SHARED ON ALL PAGES ---
-logo = st.image("assets/logo.png",use_column_width="auto")
-st.logo(logo)
+st.logo("assets/logo_sem_texto.png")
 
 
 # --- RUN NAVIGATION ---
