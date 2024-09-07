@@ -18,5 +18,5 @@ with col1:
 with col2:
   st.image("assets/logo_com_texto.png",use_column_width="auto")
 
-for row in df:
+for index, row in df.iterrows():
   st.write(row["Avisos"])
