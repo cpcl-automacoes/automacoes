@@ -28,12 +28,12 @@ df_melted = pd.melt(filtered_df, id_vars=['Data'], var_name='Horário da Aula', 
 # Renaming columns for clarity
 df_melted.rename(columns={'Data': 'Data da Aula',"Horário da Aula":"Horário","Aula":"Professor"}, inplace=True)
 df_melted = df_melted.loc[(df_melted["Professor"] != "INTERVALO") & (df_melted["Professor"] != "ALMOÇO")] 
-professores = df_melted["Professor"].unique().sort_values()
+professores = df_melted["Professor"].sort_values().unique()
 
 col1, col2 = st.columns([2,1],vertical_alignment="center")
 
 with col1:
-    st.markdown("# Grade Horária por Professor")
+    st.title("Grade Horária por Professor")
 
 with col2:
   st.image("assets/logo_com_texto.png",use_column_width="auto")
