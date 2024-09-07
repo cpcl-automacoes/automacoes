@@ -7,7 +7,10 @@ st.set_page_config(page_title="Aulas por professor", page_icon="🕒",layout="wi
 sheet_url = st.secrets["SPREADSHEET"]
 
 conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet="Turma - LÉLIA GONZÁLEZ",spreadsheet=sheet_url)
+df_lelia = conn.read(worksheet="Turma - LÉLIA GONZÁLEZ",spreadsheet=sheet_url)
+df_eliane = conn.read(worksheet="Turma - ELIANE POTIGUARA",spreadsheet=sheet_url)
+
+df = pd.concat([df_lelia,df_eliane])
 
 df['Data'] = pd.to_datetime(df['Data'],format="%d/%m/%Y")
 
@@ -19,20 +22,26 @@ filtered_df = df[df['Data'] >= today]
 
 filtered_df['Data'] = filtered_df['Data'].dt.strftime('%d/%m/%Y')
 
-datas = filtered_df["Data"]
+# Melt the dataframe to reshape it
+df_melted = pd.melt(filtered_df, id_vars=['Data'], var_name='Horário da Aula', value_name='Aula')
 
-menor_data = filtered_df["Data"].min()
+# Extract the professor names from the 'Aula' column
+df_melted['Professor'] = df_melted['Aula'].str.extract(r'\((.*?)\)')
+df_melted['Aula'] = df_melted['Aula'].str.split(' ').str[0]
 
-data_select = st.selectbox(
-    label="Selecione a data",
-    options = datas,
-    placeholder = menor_data
+# Renaming columns for clarity
+df_melted.rename(columns={'Data': 'Data da Aula'}, inplace=True)
+
+# Selecting the relevant columns
+df_final = df_melted[['Professor', 'Data da Aula', 'Horário da Aula']]
+
+professores = df_final["Professor"].unique()
+
+professor_select = st.selectbox(
+    label="Selecione o professor",
+    options = professores,
+    placeholder = "Selecione o professor"
 )
 
-selected_df = filtered_df.loc[filtered_df["Data"] == data_select]
-
-selected_df = selected_df[selected_df.columns[1:]].transpose().reset_index()
-
-selected_df.columns = ["Horário","Disciplina"]
-
+selected_df = filtered_df.loc[filtered_df["Professor"] == professor_select]
 st.dataframe(selected_df,use_container_width=True,hide_index=True)
