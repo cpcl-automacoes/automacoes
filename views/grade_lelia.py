@@ -25,6 +25,7 @@ menor_data = filtered_df["Data"].min()
 data_select = st.selectbox(
     label="Selecione a data",
     options = datas,
+    placeholder = menor_data
 )
 
 selected_df = filtered_df.loc[filtered_df["Data"] == data_select]
