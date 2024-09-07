@@ -26,12 +26,9 @@ filtered_df['Data'] = filtered_df['Data'].dt.strftime('%d/%m/%Y')
 df_melted = pd.melt(filtered_df, id_vars=['Data'], var_name='Horário da Aula', value_name='Aula')
 
 # Renaming columns for clarity
-df_melted.rename(columns={'Data': 'Data da Aula'}, inplace=True)
+df_melted.rename(columns={'Data': 'Data da Aula',"Horário da Aula":"Horário","Aula":"Professor"}, inplace=True)
 
-# Selecting the relevant columns
-df_final = df_melted[['Professor', 'Data da Aula', 'Horário da Aula']]
-
-professores = df_final["Professor"].unique()
+professores = df_melted["Professor"].unique()
 
 professor_select = st.selectbox(
     label="Selecione o professor",
@@ -39,5 +36,5 @@ professor_select = st.selectbox(
     placeholder = "Selecione o professor"
 )
 
-selected_df = filtered_df.loc[filtered_df["Professor"] == professor_select]
+selected_df = df_melted.loc[df_melted["Professor"] == professor_select]
 st.dataframe(selected_df,use_container_width=True,hide_index=True)
