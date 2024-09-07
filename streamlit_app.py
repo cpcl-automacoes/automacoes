@@ -14,7 +14,7 @@ page_eliane = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Grade Horária": [page_eliane, google_page]
+        "Grade Horária": [page_eliane]
     }
 )
 
