@@ -30,4 +30,6 @@ data_select = st.selectbox(
 
 selected_df = filtered_df.loc[filtered_df["Data"] == data_select]
 
+selected_df = selected_df.transpose()
+
 st.dataframe(selected_df)
