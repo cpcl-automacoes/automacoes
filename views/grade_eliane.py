@@ -24,6 +24,8 @@ datas = filtered_df["Data"]
 
 menor_data = filtered_df["Data"].min()
 
+st.image("assets/logo_com_texto.png")
+
 data_select = st.selectbox(
     label="Selecione a data",
     options = datas,
@@ -35,7 +37,5 @@ selected_df = filtered_df.loc[filtered_df["Data"] == data_select]
 selected_df = selected_df[selected_df.columns[1:]].transpose().reset_index()
 
 selected_df.columns = ["Horário","Disciplina"]
-
-st.image(st.logo("assets/logo_com_texto.png"))
 
 st.dataframe(selected_df,use_container_width=True,hide_index=True)
