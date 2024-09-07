@@ -1,6 +1,14 @@
 import streamlit as st
 
-# --- PAGE SETUP ---
+# --- PAGE SETUP --
+
+page_avisos = st.Page(
+    "views/avisos.py",
+    title="avisos",
+    icon=":material/campaign:",
+    default= True
+)
+-
 page_eliane = st.Page(
     "views/grade_eliane.py",
     title="Eliane Potiguara",
@@ -25,6 +33,7 @@ page_professores = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
+        "Avisos": [page_avisos],
         "Turmas": [page_eliane,page_lelia],
         "Professores": [page_professores]
     }
