@@ -30,6 +30,9 @@ data_select = st.selectbox(
 
 selected_df = filtered_df.loc[filtered_df["Data"] == data_select]
 
-selected_df = selected_df.transpose()
+selected_df = selected_df[selected_df.columns[1:]].transpose().reset_index()
 
-st.dataframe(selected_df)
+selected_df.columns = ["Horário","Disciplina"]
+selected_df
+
+st.dataframe(selected_df,use_container_width=True)
