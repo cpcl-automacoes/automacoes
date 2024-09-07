@@ -15,7 +15,7 @@ page_lelia = st.Page(
 
 page_professores = st.Page(
     "views/grade_professores.py",
-    title="Dias das aulas",
+    title="Dia das aulas",
     icon=":material/school:",
 )
 
@@ -25,14 +25,14 @@ page_professores = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Turma": [page_eliane,page_lelia],
+        "Turmas": [page_eliane,page_lelia],
         "Professores": [page_professores]
     }
 )
 
 
 # --- SHARED ON ALL PAGES ---
-# st.logo("assets/codingisfun_logo.png")
+st.logo("assets/logo.png")
 
 
 # --- RUN NAVIGATION ---

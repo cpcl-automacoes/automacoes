@@ -3,7 +3,7 @@ import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 from datetime import datetime
 
-st.set_page_config(page_title="Grade Horária - Lélia González", page_icon="🕒",layout="wide")
+st.set_page_config(page_title="Aulas por professor", page_icon="🕒",layout="wide")
 sheet_url = st.secrets["SPREADSHEET"]
 
 conn = st.connection("gsheets", type=GSheetsConnection)
