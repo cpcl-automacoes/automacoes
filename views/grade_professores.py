@@ -25,10 +25,6 @@ filtered_df['Data'] = filtered_df['Data'].dt.strftime('%d/%m/%Y')
 # Melt the dataframe to reshape it
 df_melted = pd.melt(filtered_df, id_vars=['Data'], var_name='Horário da Aula', value_name='Aula')
 
-# Extract the professor names from the 'Aula' column
-df_melted['Professor'] = df_melted['Aula'].str.extract(r'\((.*?)\)')
-df_melted['Aula'] = df_melted['Aula'].str.split(' ').str[0]
-
 # Renaming columns for clarity
 df_melted.rename(columns={'Data': 'Data da Aula'}, inplace=True)
 
