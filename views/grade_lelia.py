@@ -6,8 +6,8 @@ from datetime import datetime
 st.set_page_config(page_title="Grade Horária - Lélia González", page_icon="🕒",layout="wide")
 sheet_url = st.secrets["connections.gsheets"]["spreadsheet"]
 
-conn = st.connection("gsheets", type=GSheetsConnection,spreadsheet=sheet_url)
-df = conn.read(worksheet="Turma - LÉLIA GONZÁLEZ")
+conn = st.connection("gsheets", type=GSheetsConnection)
+df = conn.read(worksheet="Turma - LÉLIA GONZÁLEZ",spreadsheet=sheet_url)
 
 df['Data'] = pd.to_datetime(df['Data'],format="%d/%m/%Y")
 
