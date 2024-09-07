@@ -7,6 +7,12 @@ page_eliane = st.Page(
     icon=":material/schedule:",
 )
 
+page_lelia = st.Page(
+    "views/grade_lelia.py",
+    title="Lélia González",
+    icon=":material/schedule:",
+)
+
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
@@ -14,7 +20,7 @@ page_eliane = st.Page(
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Grade Horária": [page_eliane]
+        "Grade Horária": [page_eliane,page_lelia]
     }
 )
 
