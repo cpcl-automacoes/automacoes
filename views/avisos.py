@@ -4,7 +4,7 @@ import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 from datetime import datetime
 
-st.set_page_config(page_title="Avisos", page_icon="⚠️",layout="wide")
+st.set_page_config(page_title="Avisos", page_icon="📢",layout="wide")
 sheet_url = st.secrets["SPREADSHEET"]
 
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -19,4 +19,4 @@ with col2:
   st.image("assets/logo_com_texto.png",use_column_width="auto")
 
 for row in df:
-  st.write(row)
+  st.write(row["Avisos"])
