@@ -44,4 +44,4 @@ selected_df = selected_df[selected_df.columns[1:]].transpose().reset_index()
 
 selected_df.columns = ["Horário","Disciplina"]
 
-st.dataframe(selected_df,use_container_width=True,hide_index=True,height=500)
+st.dataframe(selected_df,use_container_width=True,hide_index=True,height=480)
