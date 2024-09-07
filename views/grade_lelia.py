@@ -11,7 +11,7 @@ df = conn.read(worksheet="Turma - LÉLIA GONZÁLEZ")
 df['Data'] = pd.to_datetime(df['Data'],format="%d/%m/%Y")
 
 # Get today's date
-today = pd.to_datetime(datetime.today().strftime('%d/%m/%Y'))
+today = pd.to_datetime(datetime.today().strftime('%d/%m/%Y'), format='%d/%m/%Y')
 
 # Filter rows where the date is equal or greater than today
 filtered_df = df[df['Data'] >= today]
