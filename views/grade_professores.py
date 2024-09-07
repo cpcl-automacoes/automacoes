@@ -28,7 +28,7 @@ df_melted = pd.melt(filtered_df, id_vars=['Data'], var_name='Horário da Aula', 
 # Renaming columns for clarity
 df_melted.rename(columns={'Data': 'Data da Aula',"Horário da Aula":"Horário","Aula":"Professor"}, inplace=True)
 df_melted = df_melted.loc[(df_melted["Professor"] != "INTERVALO") & (df_melted["Professor"] != "ALMOÇO")] 
-professores = df_melted["Professor"].unique()
+professores = df_melted["Professor"].unique().sort_values()
 
 col1, col2 = st.columns([2,1],vertical_alignment="center")
 
@@ -42,6 +42,7 @@ with col2:
 professor_select = st.selectbox(
     label="Selecione o professor",
     options = professores,
+    index=None,
     placeholder = "Selecione o professor"
 )
 
