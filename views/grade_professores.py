@@ -30,6 +30,15 @@ df_melted.rename(columns={'Data': 'Data da Aula',"Horário da Aula":"Horário","
 df_melted = df_melted.loc[(df_melted["Professor"] != "INTERVALO") & (df_melted["Professor"] != "ALMOÇO")] 
 professores = df_melted["Professor"].unique()
 
+col1, col2 = st.columns([2,1],vertical_alignment="center")
+
+with col1:
+    st.markdown("# Grade Horária por Professor")
+
+with col2:
+  st.image("assets/logo_com_texto.png",use_column_width="auto")
+
+
 professor_select = st.selectbox(
     label="Selecione o professor",
     options = professores,
