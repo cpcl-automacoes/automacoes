@@ -46,6 +46,7 @@ professor_select = st.selectbox(
     placeholder = "Selecione o professor"
 )
 
+df_melted = df_melted.drop_duplicates()
+
 selected_df = df_melted.loc[df_melted["Professor"] == professor_select]
-selected_df = selected_df.drop_duplicates()
 st.dataframe(selected_df,use_container_width=True,hide_index=True)
