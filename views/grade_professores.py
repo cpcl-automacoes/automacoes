@@ -39,10 +39,10 @@ with col2:
   st.image("assets/logo_com_texto.png",use_column_width="auto")
 
 
-professor_select = st.selectbox(
+professor_select = st.multiselect(
     label="Selecione o professor",
     options = professores,
-    index=None,
+    default=None,
     placeholder = "Selecione o professor"
 )
 
